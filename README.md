@@ -1,2 +1,2 @@
 # digibook
-A digital contanct book
+A digital contact book
