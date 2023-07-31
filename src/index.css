@@ -71,3 +71,13 @@ button:focus-visible {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(126, 246, 224, 1) 0%,
+    rgb(28, 113, 144) 100%
+  );
+}
