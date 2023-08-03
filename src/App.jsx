@@ -4,6 +4,7 @@ import Hello from "./Hello";
 import CardList from "./CardList";
 import { users } from "./placeholders";
 import SearchBox from "./SearchBox";
+import Scroll from "./Scroll";
 
 class App extends Component {
   constructor() {
@@ -29,7 +30,9 @@ class App extends Component {
           placeholder="Who's your friend?"
           onSearchChange={this.onSearchChange}
         />
-        <CardList cardList={filteredUsers} />
+        <Scroll>
+          <CardList cardList={filteredUsers} />
+        </Scroll>
       </>
     );
   }
