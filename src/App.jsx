@@ -1,16 +1,17 @@
 import { Component } from "react";
 import "./App.css";
-import Hello from "./Hello";
 import CardList from "./CardList";
-import { users } from "./placeholders";
 import SearchBox from "./SearchBox";
 import Scroll from "./Scroll";
+import Footer from "./Footer";
+
+const API_URL = "https://jsonplaceholder.cypress.io/users";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      userList: users,
+      userList: [],
       searchField: "",
     };
   }
@@ -19,20 +20,28 @@ class App extends Component {
     this.setState({ searchField: event.target.value });
   };
 
+  componentDidMount() {
+    fetch(API_URL).then(response => response.json()).then(users => this.setState({userList: users}));
+  }
+
   render() {
-    const filteredUsers = users.filter((user) =>
-      user.name.toLowerCase().includes(this.state.searchField.toLowerCase()),
+    const { userList, searchField } = this.state;
+    const filteredUsers = userList.filter((user) =>
+      user.name.toLowerCase().includes(searchField.toLowerCase()),
     );
     return (
       <>
-        <h1 className="text-3xl font-bold">DigiBook</h1>
-        <SearchBox
-          placeholder="Who's your friend?"
-          onSearchChange={this.onSearchChange}
-        />
-        <Scroll>
-          <CardList cardList={filteredUsers} />
-        </Scroll>
+        <div className="main">
+          <h1 className="text-[8rem] text-sky-800 title">DigiBook</h1>
+          <SearchBox
+            placeholder="Who's your friend?"
+            onSearchChange={this.onSearchChange}
+          />
+          <Scroll>
+            <CardList cardList={filteredUsers} />
+          </Scroll>
+        </div>
+        <Footer copyOwner={"InfiniteDebugging"} />
       </>
     );
   }
