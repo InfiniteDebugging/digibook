@@ -21,7 +21,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch(API_URL).then(response => response.json()).then(users => this.setState({userList: users}));
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((users) => this.setState({ userList: users }));
   }
 
   render() {
