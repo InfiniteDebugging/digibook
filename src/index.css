@@ -75,6 +75,7 @@ button:focus-visible {
 html,
 body {
   min-height: 100vh;
+  min-width: 320px;
 }
 body {
   padding: 0;

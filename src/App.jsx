@@ -33,8 +33,10 @@ class App extends Component {
     );
     return (
       <>
-        <div className="main">
-          <h1 className="text-[8rem] text-sky-800 title">DigiBook</h1>
+        <div className="main flex flex-col ">
+          <h1 className="text-[3rem] md:text-[8rem] text-sky-800 title">
+            DigiBook
+          </h1>
           <SearchBox
             placeholder="Who's your friend?"
             onSearchChange={this.onSearchChange}
@@ -42,8 +44,8 @@ class App extends Component {
           <Scroll>
             <CardList cardList={filteredUsers} />
           </Scroll>
+          <Footer copyOwner={"InfiniteDebugging"} />
         </div>
-        <Footer copyOwner={"InfiniteDebugging"} />
       </>
     );
   }
