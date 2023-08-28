@@ -1,9 +1,9 @@
 import { Component } from "react";
 import "./App.css";
-import CardList from "./CardList";
-import SearchBox from "./SearchBox";
-import Scroll from "./Scroll";
-import Footer from "./Footer";
+import CardList from "../components/CardList";
+import SearchBox from "../components/SearchBox";
+import Scroll from "../components/Scroll";
+import Footer from "../components/Footer";
 
 const API_URL = "https://jsonplaceholder.cypress.io/users";
 
